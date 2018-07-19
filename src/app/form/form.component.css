@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+}
+form{
+  max-width: 600px;
+  width: 100%;
+  margin: 50px auto;
+  padding: 15px;
+  border: 1px solid black;
+}
+label{
+  font-size: 20px;
+}
+.input-block{
+  margin-bottom: 20px;
+}
+.input-block.row{
+  display: flex;
+  justify-content: space-between;
+}
+button{
+  width: 100%;
+  font-size: 22px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  cursor: pointer;
+  padding: 10px 0;
+}
+.array-add-btn{
+  margin-bottom: 20px;
+}
+.submit-btn{
+  margin-top: 20px;
+}

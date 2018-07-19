@@ -1,0 +1,21 @@
+<header>
+  <div class="container">
+    <a href="" class="logo">
+      ут типо логотип
+    </a>
+    <nav>
+      <a routerLink="/login">
+        Логин
+      </a>
+      <a routerLink="/register">
+        Регистрация
+      </a>
+      <mat-form-field class="search">
+        <input matInput type="text" placeholder="I want to find..." [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+<!--<div [formGroup]="myForm">-->
+  <!--<div *ngFor="let option of options">-->
+    <!--<div>{{option.label}}</div>-->
+    <!--<input type="radio" [formControlName]="prop.key" [name]="prop.key" [value]="option.value">-->
+  <!--</div>-->
+<!--</div>-->
+
+<div [formGroup]="myForm" class="wrapper">
+  <mat-radio-group *ngFor="let option of options"  [name]="prop.key" [formControlName]="prop.key">
+    <mat-radio-button   [value]="option.value">
+      {{option.label}}
+    </mat-radio-button>
+  </mat-radio-group>
+</div>
+

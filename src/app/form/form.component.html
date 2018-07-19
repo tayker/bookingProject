@@ -1,0 +1,39 @@
+<form [formGroup]="myForm" novalidate>
+  <ng-container *ngFor="let prop of formProps">
+    <ng-container [ngSwitch]="prop.type" *ngIf="isDependent(prop.dependency)">
+      <label class="label">{{prop.label}}:</label>
+      <ng-container *ngIf="!prop.array; else textArrayTemplate">
+        <app-text *ngSwitchCase="'text'" [prop]="prop" [myForm]="myForm" [case]="'control'"></app-text>
+      </ng-container>
+      <ng-template #textArrayTemplate>
+        <app-text *ngSwitchCase="'text'" [prop]="prop" [myForm]="myForm" [case]="'array'" (onRemoveControl)="removeControl($event)"></app-text>
+      </ng-template>
+      <ng-container>
+        <app-password *ngSwitchCase="'password'" [prop]="prop" [myForm]="myForm"></app-password>
+      </ng-container>
+      <ng-container *ngIf="!prop.array; else emailArrayTemplate">
+        <app-email *ngSwitchCase="'email'" [prop]="prop" [myForm]="myForm" [case]="'control'"></app-email>
+      </ng-container>
+      <ng-template #emailArrayTemplate>
+        <app-email *ngSwitchCase="'email'" [prop]="prop" [myForm]="myForm" [case]="'array'" (onRemoveControl)="removeControl($event)"></app-email>
+      </ng-template>
+      <ng-container *ngSwitchCase="'radio'">
+        <app-radio [prop]="prop" [myForm]="myForm" [options]="prop.options"></app-radio>
+      </ng-container>
+      <ng-container *ngSwitchCase="'select'">
+        <app-select [prop]="prop" [myForm]="myForm" [options]="prop.options"></app-select>
+      </ng-container>
+      <ng-container *ngIf="!prop.array; else numberArrayTemplate">
+        <app-number *ngSwitchCase="'number'" [prop]="prop" [myForm]="myForm" [case]="'control'"></app-number>
+      </ng-container>
+      <ng-template #numberArrayTemplate>
+        <app-number *ngSwitchCase="'number'" [prop]="prop" [myForm]="myForm" [case]="'array'" (onRemoveControl)="removeControl($event)"></app-number>
+      </ng-template>
+      <button *ngIf="prop.array" (click)="addContact(prop.array)" class="array-add-btn">Добавить {{prop.label}}</button>
+    </ng-container>
+
+  </ng-container>
+  <button (click)="submit()" class="submit-btn">
+    Submit
+  </button>
+</form>
