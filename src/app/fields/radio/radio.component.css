@@ -1,6 +1,10 @@
-.wrapper{
+.field{
   display: flex;
   justify-content: space-around;
   margin: 20px auto;
   max-width: 300px;
+}
+.error{
+  text-align: left;
+  color: red;
 }

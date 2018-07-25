@@ -1,4 +1,4 @@
-<div [formGroup]="myForm">
+<div [formGroup]="myForm" class="field">
   <select  [formControlName]="prop.key">
     <option *ngFor="let option of options" [value]="option.value">
       {{option.label}}

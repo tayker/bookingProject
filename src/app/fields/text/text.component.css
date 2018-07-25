@@ -16,6 +16,7 @@ button{
   background-color: #000;
   color: #fff;
 }
-.field{
-  margin-bottom: 20px;
+.error{
+  text-align: left;
+  color: red;
 }

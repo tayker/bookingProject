@@ -1,0 +1,12 @@
+<li>
+  <div class="title">{{item.title}}</div>
+  <div class="address">{{item.address}}</div>
+  <div class="imgs-wrapper">
+    <ngx-slick-carousel class="carousel" [config]="slideConfig">
+      <img ngxSlickItem class="slide" *ngFor="let img of item.gallery" src="{{img}}" alt="">
+    </ngx-slick-carousel>
+  </div>
+  <div class="date">{{item.date}}</div>
+  <div class="description">{{item.description}}</div>
+  <div class="price">{{item.price}}</div>
+</li>

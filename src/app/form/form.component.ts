@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@ang
 import { FormService } from '../form.service';
 import { User } from '../user';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -13,11 +14,13 @@ export class FormComponent implements OnInit {
 
   myForm: FormGroup;
   formData: any;
-  formProps = [];
+  formProps: any = [];
+  sendStatus: string;
 
   constructor(private fs: FormService,
               private fb: FormBuilder,
-              private ds: DataService) {
+              private ds: DataService,
+              private router: Router) {
 
   }
 
@@ -57,12 +60,20 @@ export class FormComponent implements OnInit {
     } else { return []; }
   }
   submit() {
-    console.log(this.myForm);
     const sendObj = [];
     for(const control of Object.keys(this.myForm.controls)) {
       sendObj.push(this.myForm.controls[control].value);
     }
-    this.ds.addUser(sendObj[0], sendObj[1], sendObj[2], sendObj[4], sendObj[5], sendObj[6], sendObj[7]);
+    if (this.myForm.valid){
+      this.ds.addUser(sendObj[0], sendObj[1], sendObj[2], sendObj[4], sendObj[5], sendObj[6], sendObj[7]);
+      this.sendStatus = 'Успешно зарегестрированы';
+      setTimeout(() => {
+        this.goHome();
+      }, 1000);
+    } else { this.sendStatus = 'Заполните все поля'; }
+  }
+  goHome(){
+    this.router.navigate(['/login']);
   }
   isDependent(dependent: any): boolean {
     if (dependent) {

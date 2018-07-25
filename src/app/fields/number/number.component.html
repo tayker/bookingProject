@@ -7,3 +7,6 @@
     <button *ngIf="i > 0" (click)="removeControl(prop.array, i)">Remove Control</button>
   </div>
 </div>
+<div class="error" *ngIf="myForm.get(prop.key).invalid && (myForm.get(prop.key)).dirty">
+  Поле должно быть заполнено
+</div>

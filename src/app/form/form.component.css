@@ -10,6 +10,8 @@ form{
 }
 label{
   font-size: 20px;
+  margin-top: 20px;
+  display: inline-block;
 }
 .input-block{
   margin-bottom: 20px;
@@ -32,4 +34,8 @@ button{
 }
 .submit-btn{
   margin-top: 20px;
+}
+.send-status{
+  font-size: 18px;
+  margin-top: 10px;
 }

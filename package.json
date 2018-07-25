@@ -25,8 +25,10 @@
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
     "ng-semantic": "^1.1.13",
+    "ngx-slick-carousel": "^0.3.2",
     "normalize.scss": "^0.1.0",
     "rxjs": "^6.0.0",
+    "slick-carousel": "^1.8.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

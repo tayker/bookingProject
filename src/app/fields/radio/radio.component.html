@@ -5,7 +5,7 @@
   <!--</div>-->
 <!--</div>-->
 
-<div [formGroup]="myForm" class="wrapper">
+<div [formGroup]="myForm" class="field">
   <mat-radio-group *ngFor="let option of options"  [name]="prop.key" [formControlName]="prop.key">
     <mat-radio-button   [value]="option.value">
       {{option.label}}

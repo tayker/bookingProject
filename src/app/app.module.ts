@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SlickCarouselModule} from 'ngx-slick-carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -21,11 +22,19 @@ import {FormService} from './form.service';
 import {RadioComponent} from './fields/radio/radio.component';
 import {SelectComponent} from './fields/select/select.component';
 import { PasswordComponent } from './fields/password/password.component';
+import {Log} from '@angular/core/testing/src/logger';
+import {LoginService} from './login.service';
+import {HttpClientModule} from '@angular/common/http';
+import { SectionListComponent } from './section-list/section-list.component';
+import { ListItemComponent } from './section-list/list-item/list-item.component';
+import { SectionSingleComponent } from './section-single/section-single.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainpageComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'section-list', component: SectionListComponent},
+  { path: 'section-list/:id', component: SectionSingleComponent}
 ];
 
 @NgModule({
@@ -42,7 +51,10 @@ const appRoutes: Routes = [
     EmailComponent,
     RadioComponent,
     SelectComponent,
-    PasswordComponent
+    PasswordComponent,
+    SectionListComponent,
+    ListItemComponent,
+    SectionSingleComponent
   ],
   imports: [
     BrowserModule,
@@ -53,9 +65,11 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     RouterModule.forRoot(appRoutes),
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule,
+    SlickCarouselModule
   ],
-  providers: [DataService, FormService],
+  providers: [DataService, FormService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

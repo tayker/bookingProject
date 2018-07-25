@@ -12,12 +12,13 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 480px;
+    width: 500px;
     padding: 10px 0;
 
     a{
       color: #fff;
       text-transform: uppercase;
+      cursor: pointer;
 
       &:hover{
         color: #74d2e7;
